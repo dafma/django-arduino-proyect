@@ -1,0 +1,2 @@
+# django
+practicas en framwork
