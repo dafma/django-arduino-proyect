@@ -33,6 +33,7 @@ INSTALLED_APPS = (
     #'cms',
     #'mptt',
     'suit',
+    'djangular',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
