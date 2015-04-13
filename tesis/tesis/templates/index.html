@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+{%load staticfiles %}
+<!--<script type="text/javascript" src="{% static 'yawd-admin/js/bootstrap.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'yawd-admin/js/bootstrap.switch.js' %}"></script>
+<script type="text/javascript" src="{% static 'yawd-admin/js/bootstrap.switch.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'yawd-admin/js/jquery-ui-sortables.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'yawd-admin/js/jquery.fancybox.js' %}"></script>
+<script type="text/javascript" src="{% static 'yawd-admin/js/jquery.fancybox.pack.js' %}"></script>
+<script type="text/javascript" src="{% static 'yawd-admin/js/sortables.js' %}"></script>
+<script type="text/javascript" src="{% static 'yawd-admin/js/yawd-admin.js' %}"></script>
+-->
+<link rel="stylesheet" type="text/css" href="{% static 'admin/css/base.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'admin/css/changelists.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'admin/css/dashboard.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'admin/css/forms.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'admin/css/login.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'admin/css/widgets.css' %}">
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title> Arduino Project</title>
+  </head>
+  <body>
+    <header>
+      <h1>Bienvenidos a Nuestro      Arduino Project</h1>
+      {% if user.is_authenticated %}
+        <form class="required" method="post" action="/logout/">
+           {% csrf_token %}
+           Bienvenido: {{user}}
+           <input type="submit" value="Salir" />
+           <input type="hidden" name="next" value="/">
+            <nav>
+              <ul>
+              <p></p>
+                <ol>
+                  <button type="button" href="#">Estado de Dispositivos</button>
+                </ol>
+                <ol>
+                  <button type="button" href="#">Control Arduino</button>
+                </ol>
+                <ol>
+                  <button type="button" href="#">Registro</button>
+                </ol>
+                <ol>
+                  <button type="button" href="#">Sugerencias</button>
+                </ol>
+              </ul>
+            </nav>
+        </form>
+
+      {% else %}
+        
+        <form method="post" action="/login/">
+           {% csrf_token %}
+            Usuario <input type="text" name="username">
+            Password <input type="password" name="password">
+            <input type="submit" value="Entrar" />
+            <input type="hidden" name="next" value="/">
+        </form>
+      {% endif %} 
+    </header>
+    <section id="contenido">
+      {% block content %}
+
+      {% endblock %}
+    </section>
+  </body>
+</html>
