@@ -3,59 +3,116 @@
 <!--<script type="text/javascript" src="{% static 'yawd-admin/js/bootstrap.min.js' %}"></script>
 <script type="text/javascript" src="{% static 'yawd-admin/js/bootstrap.switch.js' %}"></script>
 <script type="text/javascript" src="{% static 'yawd-admin/js/bootstrap.switch.min.js' %}"></script>
-<script type="text/javascript" src="{% static 'yawd-admin/js/jquery-ui-sortables.min.js' %}"></script>
-<script type="text/javascript" src="{% static 'yawd-admin/js/jquery.fancybox.js' %}"></script>
-<script type="text/javascript" src="{% static 'yawd-admin/js/jquery.fancybox.pack.js' %}"></script>
-<script type="text/javascript" src="{% static 'yawd-admin/js/sortables.js' %}"></script>
-<script type="text/javascript" src="{% static 'yawd-admin/js/yawd-admin.js' %}"></script>
 -->
-<link rel="stylesheet" type="text/css" href="{% static 'admin/css/base.css' %}">
-<link rel="stylesheet" type="text/css" href="{% static 'admin/css/changelists.css' %}">
-<link rel="stylesheet" type="text/css" href="{% static 'admin/css/dashboard.css' %}">
-<link rel="stylesheet" type="text/css" href="{% static 'admin/css/forms.css' %}">
-<link rel="stylesheet" type="text/css" href="{% static 'admin/css/login.css' %}">
-<link rel="stylesheet" type="text/css" href="{% static 'admin/css/widgets.css' %}">
+
 <html>
   <head>
+
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title> Arduino Project</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'admin/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'admin/css/signin.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'admin/css/dashboard.css' %}">
+
   </head>
-  <body>
+  <body style="background:logo.jpg">
+
     <header>
-      <h1>Bienvenidos a Nuestro      Arduino Project</h1>
+      <h1>Bienvenidos a Nuestro Arduino Project</h1>
       {% if user.is_authenticated %}
         <form class="required" method="post" action="/logout/">
-           {% csrf_token %}
-           Bienvenido: {{user}}
-           <input type="submit" value="Salir" />
-           <input type="hidden" name="next" value="/">
-            <nav>
-              <ul>
-              <p></p>
-                <ol>
-                  <button type="button" href="#">Estado de Dispositivos</button>
-                </ol>
-                <ol>
-                  <button type="button" href="#">Control Arduino</button>
-                </ol>
-                <ol>
-                  <button type="button" href="#">Registro</button>
-                </ol>
-                <ol>
-                  <button type="button" href="#">Sugerencias</button>
-                </ol>
-              </ul>
-            </nav>
-        </form>
+          
+          {% csrf_token %}
+          
+          <input type="hidden" name="next" value="/">
+            <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Arduino Proyect Unerg</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="#">Perfil</a></li>
+            <li><a href="#">Ayuda</a></li>
+            <li><a>Bienvenido: {{user}}
+              <input type="submit" class="btn btn-sm btn-danger" value="Salir" /></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
 
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+          <ul class="nav nav-sidebar">
+            <li class="active"><a href="#"></a></li>
+            <li><a href="#">Estado de Dispositivo</a></li>
+            <li><a href="#"></a></li>
+            <li><a href="#">Componentes Funcionando</a></li>
+          </ul>
+          <ul class="nav nav-sidebar">
+            <li><a href=""></a></li>
+            <li><a href="">Controlar Dispositivos</a></li>
+            <li><a href=""></a></li>
+            <li><a href="">Sugerencias</a></li>
+            <li><a href=""></a></li>
+          </ul>
+          <ul class="nav nav-sidebar">
+            <li><a href="">Reportes</a></li>
+            <li><a href=""></a></li>
+            <li><a href="">Acerca del Proyecto</a></li>
+            <li><a href="http://www.arduino.cc" target="new">Pagina Oficial Arduino</a></li>
+          </ul>
+        </div>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+          <h1 class="page-header">Referencias Graficas</h1>
+
+          <div class="row placeholders">
+            <div class="col-xs-6 col-sm-3 placeholder">
+              <img data-src="holder.js/200x200/auto/sky" class="img-responsive" alt="Generic placeholder thumbnail">
+              <h4>Label</h4>
+              <span class="text-muted">Visitas</span>
+            </div>
+            <div class="col-xs-6 col-sm-3 placeholder">
+              <img data-src="holder.js/200x200/auto/vine" class="img-responsive" alt="Generic placeholder thumbnail">
+              <h4>Label</h4>
+              <span class="text-muted">Usos de la aplicacion</span>
+            </div>
+            <div class="col-xs-6 col-sm-3 placeholder">
+              <img data-src="holder.js/200x200/auto/sky" class="img-responsive" alt="Generic placeholder thumbnail">
+              <h4>Label</h4>
+              <span class="text-muted">Sugerencias</span>
+            </div>
+            <div class="col-xs-6 col-sm-3 placeholder">
+              <img data-src="holder.js/200x200/auto/vine" class="img-responsive" alt="Generic placeholder thumbnail">
+              <h4>Label</h4>
+              <span class="text-muted">Calificacion Funcionalidad</span>
+            </div>
+          </div>
+
+        </form>
       {% else %}
         
-        <form method="post" action="/login/">
+        <form method="post" action="/login/" class="form-signin" role="form">
            {% csrf_token %}
-            Usuario <input type="text" name="username">
-            Password <input type="password" name="password">
-            <input type="submit" value="Entrar" />
+            <h2 class="form-signin-heading">Ingrese sus Datos</h2>
+            <input type="username" name="username" class="form-control" placeholder="Username" required autofocus>
+            <input type="password" name="password" class="form-control" placeholder="Password" required>
+            <label class="checkbox">
+              <input type="checkbox" value="remember-me"> Remember me
+            </label>
             <input type="hidden" name="next" value="/">
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Acceder</button>
         </form>
       {% endif %} 
     </header>
