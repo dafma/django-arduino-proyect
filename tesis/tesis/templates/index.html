@@ -17,7 +17,6 @@
     <link rel="stylesheet" type="text/css" href="{% static 'admin/css/dashboard.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'admin/css/bootstrap-theme.min.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'admin/css/theme.css' %}">
-
   </head>
   <body style="background:logo.jpg">
 
@@ -55,19 +54,19 @@
           <div class="container-fluid">
             <div class="row">
               <div class="col-sm-3 col-md-2 sidebar">
-                <ul class="nav nav-sidebar">
+                <ul class="nav nav-tabs">
                   <li class="active"><a href="#">>Estado de Dispositivo</a></li>
                   <p></p>  
                   <li><a href="#">Componentes Funcionando</a></li>
                 </ul>
-                <ul class="nav nav-sidebar">
+                <ul class="nav nav-tabs">
                   <p></p>
                   <li><a href="">Controlar Dispositivos</a></li>
                   <p></p>
                   <li><a href="">Sugerencias</a></li>
                   <p></p>
                 </ul>
-                <ul class="nav nav-sidebar">
+                <ul class="nav nav-tabs">
                   <li><a href="">Reportes</a></li>
                   <p></p>
                   <li><a href="">Acerca del Proyecto</a></li>
@@ -104,7 +103,7 @@
           </div>
         </form>
       {% else %}
-        <h1>Bienvenidos a Nuestro Arduino Project</h1>
+        <h1 class="log-in">Bienvenidos a Nuestro Arduino Project</h1>
         <form method="post" action="/login/" class="form-signin" role="form">
            {% csrf_token %}
             <h2 class="form-signin-heading">Ingrese sus Datos</h2>

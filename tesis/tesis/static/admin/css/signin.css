@@ -1,4 +1,5 @@
 body {
+  font-family: ;
   padding-top: 80px;
   padding-bottom: 80px;
   background-image:  url(/static/admin/img/star.png);
@@ -9,6 +10,12 @@ body {
         -webkit-background-size: 0px;
         -o-background-size: 0px;
 }
+
+.log-in{
+  font-family: ;
+
+}
+
 
 .form-signin {
   max-width: 330px;
