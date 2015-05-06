@@ -13,6 +13,7 @@ urlpatterns = patterns('',
         url (r'^',include('home.urls')),
         url(r'^login/$', login),
 		url(r'^logout/$', logout),
+		url(r'^sugerencias/', include('sugerencias.urls')),
         
 )
 
