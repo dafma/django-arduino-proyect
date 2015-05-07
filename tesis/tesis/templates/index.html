@@ -60,7 +60,7 @@
                   <p></p>
                   <li><a href="">Controlar Dispositivos</a></li>
                   <p></p>
-                  <li><a <a href="{% url "Listado_sugerencias"%}">Sugerencias</a></li>
+                  <li> <a href="{% url "Crear_sugerencias" %}">Sugerencias</a></li>
                   <p></p>
                 </ul>
                 <ul class="nav nav-tabs">
@@ -93,6 +93,12 @@
                     <img data-src="holder.js/200x200/auto/vine" class="img-responsive" alt="Generic placeholder thumbnail">
                     <h4>Label</h4>
                     <span class="text-muted">Calificacion Funcionalidad</span>
+                    {% block content %}
+
+                    {% endblock %}
+                    {% block content2 %}
+
+                    {% endblock %}
                   </div>
                 </div>
               </div>
@@ -115,9 +121,7 @@
       {% endif %} 
     </header>
     <section id="contenido">
-      {% block content %}
-
-      {% endblock %}
+      
     </section>
   </body>
 </html>
