@@ -1,0 +1,28 @@
+{% extends 'index.html' %}
+
+
+
+{% block content2 %}
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Lista de Sugerencias</h3>
+      </div>
+      <div class="panel-body">
+        <h4 class="list-group-item-heading">{{ sugerencias.user }}</h4>
+                <p class="list-group-item-text">{{ sugerencias.sugerencias }}</p>
+         {% for sugerencias in sugerenciaslist %}
+            <div class="list-group">
+              <a href="#" class="list-group-item active">
+                <h4 class="list-group-item-heading">{{ sugerencias.user }}</h4>
+                <p class="list-group-item-text">{{ sugerencias.sugerencias }}</p>
+                <a href="{% url "Editar_sugerencias" sugerencias.id %}">Editar</a>
+              </a>
+           </div>
+          {% endfor %}
+        
+         <div class="col-sm-4">
+          
+        </div>
+      </div>
+    </div>
+{% endblock %}

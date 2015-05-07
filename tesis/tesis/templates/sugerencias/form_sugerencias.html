@@ -1,0 +1,10 @@
+{% extends 'index.html' %}
+
+{% block content %}
+
+    <form method="post">{% csrf_token %}
+         {{ form.as_p }}
+         <a href="{% url "Listado_sugerencias"%}">Cancelar</a> <input type="submit" value="Guardar" />
+    </form>
+
+{% endblock %}
