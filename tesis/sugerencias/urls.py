@@ -16,3 +16,4 @@ urlpatterns=patterns('',
    url(r'^camposfun$', views.camposF, name='Campos_fun'),
    url(r'^control$', views.control, name='Acerca_proyecto'),
 """
+
