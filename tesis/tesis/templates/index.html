@@ -80,15 +80,15 @@
                 </ul>
                 <ul class="nav nav-tabs">
                   <p></p>
-                  <li><a href="">Controlar Dispositivos</a></li>
+                  <li><a href="#">Controlar Dispositivos</a></li>
                   <p></p>
                   <li> <a href="{% url "Crear_sugerencias" %}">Sugerencias</a></li>
                   <p></p>
                 </ul>
                 <ul class="nav nav-tabs">
-                  <li><a href="">Reportes</a></li>
+                  <li><a href="#">Reportes</a></li>
                   <p></p>
-                  <li><a href="">Acerca del Proyecto</a></li>
+                  <li><a href="#">Acerca del Proyecto</a></li>
                   <li><a href="http://www.arduino.cc" target="new">Pagina Oficial Arduino</a></li>
                 </ul>
               </div>
@@ -130,9 +130,6 @@
                     {% block content %}
 
                     {% endblock %}
-                    {% block content2 %}
-
-                    {% endblock %}
                   </div>
                 </div>
               </div>
@@ -151,6 +148,9 @@
             </label>
             <input type="hidden" name="next" value="/">
             <button class="btn btn-lg btn-primary btn-block" type="submit">Acceder</button>
+            {%block login%}
+            
+            {%endblock%}
         </form>
       {% endif %} 
     </header>
