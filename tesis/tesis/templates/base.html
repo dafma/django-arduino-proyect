@@ -75,16 +75,16 @@
             <div class="row">
               <div class="col-sm-3 col-md-2 sidebar">
                 <ul class="nav nav-tabs">
-                  <li {% if "" in request.path %} class="active" {% endif %}><a href="{% url "resumen" %}">Resumen</a></li>                 
+                  <li {% if None in request.path %} class="active" {% endif %}><a href="{% url "resumen" %}">Resumen</a></li>                 
                 </ul>
                 <ul class="nav nav-tabs">
-                  <li {% if "dispositivos" in request.path %} class="active" {% endif %}><a href="#">Dispositivos</a></li>
-                  <li {% if "tareas" in request.path %} class="active" {% endif %}><a href="#">Programar Tareas</a></li>
-                  <li {% if "estadisticas" in request.path %} class="active" {% endif %}><a href="#">Estadisticas</a></li>
-                  <li {% if "reportes" in request.path %} class="active" {% endif %}><a href="#">Reportes</a></li>
+                  <li {% if "dispositivos" in request.path %} class="active" {% endif %}><a href="{% url "dispositivos" %}">Dispositivos</a></li>
+                  <li {% if "tareas" in request.path %} class="active" {% endif %}><a href="{% url "tareas" %}">Programar Tareas</a></li>
+                  <li {% if "estadisticas" in request.path %} class="active" {% endif %}><a href="{% url "estadisticas" %}">Estadisticas</a></li>
+                  <li {% if "reportes" in request.path %} class="active" {% endif %}><a href="{% url "reportes" %}">Reportes</a></li>
                 </ul>
                 <ul class="nav nav-tabs">
-                  <li {% if "configuraciones" in request.path %} class="active" {% endif %}><a href="#">Configuraciones</a></li>
+                  <li {% if "configuraciones" in request.path %} class="active" {% endif %}><a href="{% url "configuraciones" %}">Configuraciones</a></li>
                   <li><a href="http://www.arduino.cc" target="new">Pagina Oficial Arduino</a></li>
                 </ul>
               </div>
