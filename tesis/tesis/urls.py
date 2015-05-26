@@ -9,11 +9,12 @@ admin_site._registry.update(admin.site._registry)
 
 
 urlpatterns = patterns('',
-        url(r'^admin/', include(admin_site.urls)),
-        url (r'^',include('home.urls')),
-        url(r'^login/$', login),
-		url(r'^logout/$', logout),
-		url(r'^sugerencias/', include('sugerencias.urls')),
+    url (r'^',include('modulos.dispositivos.urls')),
+    url(r'^admin/', include(admin_site.urls)),
+        
+    url(r'^login/$', login),
+	url(r'^logout/$', logout),
+	#url(r'^sugerencias/', include('sugerencias.urls')),
         
 )
 
