@@ -49,8 +49,8 @@
           
           {% csrf_token %}
           
-              <input type="hidden" name="next" value="/">
-                <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+          <input type="hidden" name="next" value="/">
+          <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
             <div class="container-fluid">
               <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -75,21 +75,16 @@
             <div class="row">
               <div class="col-sm-3 col-md-2 sidebar">
                 <ul class="nav nav-tabs">
-                  <li class="active"><a href="#">>Estado de Dispositivo</a></li>
-                  <p></p>  
-                  <li><a href="#">Componentes Funcionando</a></li>
+                  <li><a href="#">Resumen</a></li>                 
                 </ul>
                 <ul class="nav nav-tabs">
-                  <p></p>
-                  <li><a href="#">Controlar Dispositivos</a></li>
-                  <p></p>
-                  <li> <a href="{% url "Crear_sugerencias" %}">Sugerencias</a></li>
-                  <p></p>
-                </ul>
-                <ul class="nav nav-tabs">
+                  <li class="active"><a href="#">Dispositivos</a></li>
+                  <li><a href="#">Programar Tareas</a></li>
+                  <li><a href="#">Estadisticas</a></li>
                   <li><a href="#">Reportes</a></li>
-                  <p></p>
-                  <li><a href="#">Acerca del Proyecto</a></li>
+                </ul>
+                <ul class="nav nav-tabs">
+                  <li><a href="#">Configuracion</a></li>
                   <li><a href="http://www.arduino.cc" target="new">Pagina Oficial Arduino</a></li>
                 </ul>
               </div>
