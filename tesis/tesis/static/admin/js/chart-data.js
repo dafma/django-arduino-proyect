@@ -109,6 +109,7 @@ window.onload = function(){
 	window.myLine = new Chart(chart1).Line(lineChartData, {
 		responsive: true
 	});
+	/*
 	var chart2 = document.getElementById("bar-chart").getContext("2d");
 	window.myBar = new Chart(chart2).Bar(barChartData, {
 		responsive : true
@@ -118,6 +119,6 @@ window.onload = function(){
 	});
 	var chart4 = document.getElementById("pie-chart").getContext("2d");
 	window.myPie = new Chart(chart4).Pie(pieData, {responsive : true
-	});
+	});*/
 	
 };

@@ -1,20 +1,39 @@
 {% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block css %}
+  <link rel="stylesheet" type="text/css" href="{% static "lib/bootstrap-switch/css/bootstrap3/bootstrap-switch.min.css" %}">
+{% endblock %}
+
+
+{% block js %}
+  <script src="{% static "lib/bootstrap-switch/js/bootstrap-switch.min.js" %}"></script>
+  <script src="{% static "js/dispositivos.js" %}"></script>
+{% endblock %}
 
 {% block content %}
+
    <div class=" col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
       <h1 class="page-header">Dispositivos</h1>
       <div class="row placeholders">
         <div class="row">
-          <div class="col-lg-12">
+
+          <div class="col-lg-6">
             <div class="panel panel-default">
               <div class="panel-heading">Dispositivos</div>
               <div class="panel-body">
+
+                <input type="checkbox" name="my-checkbox" checked id="" class="dispositivos">
                 
               </div>
             </div>
+          </div>
+          
           </div>
         </div>
         
       </div>
     </div>
+
+
 {% endblock %}

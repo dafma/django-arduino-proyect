@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-{%load staticfiles %}
+{% load staticfiles %}
 <!--<script type="text/javascript" src="{% static 'yawd-admin/js/bootstrap.min.js' %}"></script>
 <script type="text/javascript" src="{% static 'yawd-admin/js/bootstrap.switch.js' %}"></script>
 <script type="text/javascript" src="{% static 'yawd-admin/js/bootstrap.switch.min.js' %}"></script>
@@ -12,33 +12,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title> Arduino Project</title>
-    <script src="{% static 'admin/js/jquery-1.11.1.min.js' %}"></script>
-    <script src="{% static 'admin/js/bootstrap.min.js' %}"></script>
-    <script src="{% static 'admin/js/chart.min.js' %}"></script>
-    <script src="{% static 'admin/js/chart-data.js' %}"<></script>
-    <script src="{% static 'admin/js/easypiechart.js' %}"></script>
-    <script src="{% static 'admin/js/easypiechart-data.js' %}"></script>
-    <script src="{% static 'admin/js/bootstrap-datepicker.js' %}"></script>
-    <script>
-      !function ($) {
-          $(document).on("click","ul.nav li.parent > a > span.icon", function(){          
-              $(this).find('em:first').toggleClass("glyphicon-minus");      
-          }); 
-          $(".sidebar span.icon").find('em:first').addClass("glyphicon-plus");
-      }(window.jQuery);
-
-      $(window).on('resize', function () {
-        if ($(window).width() > 768) $('#sidebar-collapse').collapse('show')
-      })
-      $(window).on('resize', function () {
-        if ($(window).width() <= 767) $('#sidebar-collapse').collapse('hide')
-      })
-    </script>
+    
     <link rel="stylesheet" type="text/css" href="{% static 'admin/css/bootstrap.min.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'admin/css/signin.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'admin/css/dashboard.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'admin/css/bootstrap-theme.min.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'admin/css/theme.css' %}">
+    {% block css %}{% endblock %}
     
   </head>
   <body>
@@ -71,6 +51,7 @@
             </div>
           </div>
 
+          <!-- Menu -->
           <div class="container-fluid">
             <div class="row">
               <div class="col-sm-3 col-md-2 sidebar">
@@ -88,16 +69,12 @@
                   <li><a href="http://www.arduino.cc" target="new">Pagina Oficial Arduino</a></li>
                 </ul>
               </div>
-
-              
-              
-              
-              {% block content %}
-
-              {% endblock %}
-              
             </div>
           </div>
+          <!-- fin menu -->
+          
+          {% block content %}{% endblock %}
+
         </form>
       {% else %}
         <h1 class="log-in">Bienvenidos a Nuestro Arduino Project</h1>
@@ -117,10 +94,32 @@
         </form>
       {% endif %} 
     </header>
-    <!--
+    <!-- que hace?
     <section id="contenido">
       
     </section>
     -->
+    <script src="{% static 'admin/js/jquery-1.11.1.min.js' %}"></script>
+    <script src="{% static 'admin/js/bootstrap.min.js' %}"></script>   
+    <script src="{% static 'admin/js/bootstrap-datepicker.js' %}"></script>
+    <script>
+      !function ($) {
+          $(document).on("click","ul.nav li.parent > a > span.icon", function(){          
+              $(this).find('em:first').toggleClass("glyphicon-minus");      
+          }); 
+          $(".sidebar span.icon").find('em:first').addClass("glyphicon-plus");
+      }(window.jQuery);
+
+      $(window).on('resize', function () {
+        if ($(window).width() > 768) $('#sidebar-collapse').collapse('show')
+      })
+      $(window).on('resize', function () {
+        if ($(window).width() <= 767) $('#sidebar-collapse').collapse('hide')
+      })
+    </script>
+
+    {% block js %}{% endblock %}
+
+
   </body>
 </html>
