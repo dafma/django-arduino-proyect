@@ -18,16 +18,20 @@
       <div class="row placeholders">
         <div class="row">
 
+        {% for dis in dispositivos %}
+
           <div class="col-lg-6">
             <div class="panel panel-default">
-              <div class="panel-heading">Dispositivos</div>
+              <div class="panel-heading">{{dis.nombre}}</div>
               <div class="panel-body">
 
-                <input type="checkbox" name="my-checkbox" checked id="" class="dispositivos">
+                <input type="checkbox" name="{{dis.id}}" {% if dis.is_on %} checked {% endif %} id="{{dis.id}}" class="dispositivos">
                 
               </div>
             </div>
           </div>
+
+        {% endfor %}
           
           </div>
         </div>
