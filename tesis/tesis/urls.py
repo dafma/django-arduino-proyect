@@ -14,6 +14,7 @@ urlpatterns = patterns('',
         
     url(r'^login/$', login),
 	url(r'^logout/$', logout),
+    url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT, }),
 	#url(r'^sugerencias/', include('sugerencias.urls')),
         
 )

@@ -1,7 +1,10 @@
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 from django.http import HttpResponse
-from modulos.dispositivos.models import Dispositivos
+from modulos.dispositivos.models import Dispositivos, Tareas
+import json
+from django.core.serializers.json import DjangoJSONEncoder
+
 from Arduino import Arduino
 board = Arduino('9600') 
 
@@ -39,8 +42,7 @@ def dispositivos(request):
     return render_to_response('dispositivos/dispositivos.html', locals(), context_instance=RequestContext(request))
 
 
-def tareas(request):
-    return render_to_response('tareas/tareas.html', context_instance=RequestContext(request))
+
 
 
 def estadisticas(request):
@@ -53,3 +55,44 @@ def reportes(request):
 
 def configuraciones(request):
     return render_to_response('configuraciones/configuraciones.html', context_instance=RequestContext(request))
+
+
+
+
+def tareas(request):
+    return render_to_response('tareas/tareas.html', context_instance=RequestContext(request))
+
+
+def guardar_tarea(request):
+    tarea = Tareas.objects.create(
+        title = request.POST['title'],
+        start = request.POST['inicio'],
+        end = request.POST['fin'],
+        dispositivo_id = 1
+
+    )
+    tarea.save()
+
+    return HttpResponse("{'success':true}")
+
+
+def actualizar_tarea(request):
+    Tareas.objects.filter(id=request.POST['id']).update(
+        title = request.POST['title'],
+        start = request.POST['inicio'],
+        end = request.POST['fin'],
+    )
+
+    return HttpResponse("{'success':true}")
+
+
+def eliminar_tarea(request):
+    Tareas.objects.filter(id=request.POST['id']).delete()
+
+    return HttpResponse("{'success':true}")
+
+
+def ver_tareas(request):
+    query=Tareas.objects.all().values('status','allDay','end', 'title',  'start', 'id', 'dispositivo__nombre')
+    data = json.dumps(list(query), cls=DjangoJSONEncoder)
+    return HttpResponse(data, mimetype='application/json')

@@ -1,5 +1,21 @@
 {% extends 'base.html' %}
 
+{% load staticfiles %}
+
+
+{% block css %}
+<link rel='stylesheet' href="{% static 'fullcalendar-1.6/fullcalendar.css' %}" />
+{% endblock %}
+
+{% block js %}
+
+  <script src="{% static 'fullcalendar-1.6/jquery.min.js' %}"></script>    
+  <script src="{% static 'fullcalendar-1.6/jquery-ui.min.js' %}"></script> 
+  <script src="{% static 'fullcalendar-1.6/fullcalendar.js' %}"></script>
+  <script src="{% static 'js/tareas.js' %}"></script>
+
+{% endblock %}
+
 {% block content %}
    <div class=" col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
       <h1 class="page-header">Programar Tareas</h1>
@@ -10,6 +26,7 @@
             <div class="panel panel-default">
               <div class="panel-heading">Tareas</div>
               <div class="panel-body">
+                <div id='calendar'></div>
                 
               </div>
             </div>

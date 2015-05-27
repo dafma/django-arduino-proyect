@@ -10,3 +10,15 @@ class Dispositivos(models.Model):
 
     def __unicode__(self):
         return self.nombre
+
+
+class Tareas(models.Model):
+    title = models.CharField(max_length=100)
+    start = models.DateTimeField(verbose_name="inicio")
+    end = models.DateTimeField(verbose_name="fin")
+    allDay = models.BooleanField(default=False,verbose_name="todo el dia?")  
+    status = models.CharField(max_length=100)
+    dispositivo = models.ForeignKey(Dispositivos)
+
+    def __unicode__(self):
+        return self.title
