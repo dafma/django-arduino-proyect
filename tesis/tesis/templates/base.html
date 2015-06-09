@@ -43,6 +43,8 @@
               </div>
               <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
+                  <li {% if "dispositivos" in request.path %} class="active" {% endif %}><a href="{% url "dispositivos" %}">Dispositivos</a></li>
+                  <li {% if "tareas" in request.path %} class="active" {% endif %}><a href="{% url "tareas" %}">Programar Tareas</a></li>
                   <li><a>Bienvenido: {{user}}
                     <input type="submit" class="btn btn-sm btn-danger" value="Salir" /></a>
                   </li>
@@ -61,7 +63,7 @@
                 <ul class="nav nav-tabs">
                   <li {% if "dispositivos" in request.path %} class="active" {% endif %}><a href="{% url "dispositivos" %}">Dispositivos</a></li>
                   <li {% if "tareas" in request.path %} class="active" {% endif %}><a href="{% url "tareas" %}">Programar Tareas</a></li>
-                  <li {% if "estadisticas" in request.path %} class="active" {% endif %}><a href="{% url "estadisticas" %}">Estadisticas</a></li>
+                  <!-- <li {% if "estadisticas" in request.path %} class="active" {% endif %}><a href="{% url "estadisticas" %}">Estadisticas</a></li> -->
                   <li {% if "reportes" in request.path %} class="active" {% endif %}><a href="{% url "reportes" %}">Reportes</a></li>
                 </ul>
                 <ul class="nav nav-tabs">

@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+from __future__ import unicode_literals
 """
 Django settings for tesis project.
 
@@ -34,6 +36,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = (
     'yawdadmin',
+    'django_extensions',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
