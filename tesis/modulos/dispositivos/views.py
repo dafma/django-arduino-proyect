@@ -117,7 +117,7 @@ def generar_pdf(html):
     return HttpResponse('Error al generar el PDF: %s' % cgi.escape(html))
 
 def reporte_pdf(request, id):
-    # vista de ejemplo con un hipotético modelo Libro
+    # vista de ejemplo con un hipotéticosmodelo Libro
     dispositivo=get_object_or_404(Dispositivos, id=id)
     html = render_to_string('reportes/reportes.html', {'pagesize':'A4', 'Dispositivo':dispositivo}, context_instance=RequestContext(request))
     return generar_pdf(html)
