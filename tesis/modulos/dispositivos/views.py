@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+from __future__ import unicode_literals
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 from django.http import HttpResponse
@@ -61,7 +63,7 @@ def configuraciones(request):
 
 def tareas(request):
     dispositivos = Dispositivos.objects.all()
-    return render_to_response('tareas/tareas.html', context_instance=RequestContext(request), 'dispositivos':dispositivos)
+    return render_to_response('tareas/tareas.html', locals(), context_instance=RequestContext(request))
 
 
 def guardar_tarea(request):
