@@ -60,7 +60,8 @@ def configuraciones(request):
 
 
 def tareas(request):
-    return render_to_response('tareas/tareas.html', context_instance=RequestContext(request))
+    dispositivos = Dispositivos.objects.all()
+    return render_to_response('tareas/tareas.html', context_instance=RequestContext(request), 'dispositivos':dispositivos)
 
 
 def guardar_tarea(request):
