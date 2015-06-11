@@ -99,11 +99,13 @@
                 //YYYY-MM-DD HH:MM[:ss[.uuuuuu]][TZ]
                 var inicio = $.fullCalendar.formatDate(startDate, 'yyyy-MM-dd HH:mm:ss[Z]');
                 var fin = $.fullCalendar.formatDate(endDate, 'yyyy-MM-dd HH:mm:ss[Z]');
+                var dispositivo = document.getElementById("tareas_seleccion").value; 
 
                 $.ajax({
                     type: 'POST',
                     url: '/tareas/create/',
                     data: {
+                        dispositivo:dispositivo,
                         inicio: inicio,
                         fin: fin,
                         title: 'Tarea',
@@ -151,6 +153,7 @@
                 var endDate=event.end;
                 var inicio = $.fullCalendar.formatDate(startDate, 'yyyy-MM-dd HH:mm:ss[Z]');
                 var fin = $.fullCalendar.formatDate(endDate, 'yyyy-MM-dd HH:mm:ss[Z]');
+                //var dispositivo = document.getElementById("#tareas_seleccion :selected").value;
                 $.ajax({
                     type: 'POST',
                     url: '/tareas/update/',

@@ -76,7 +76,7 @@ def guardar_tarea(request):
         title = request.POST['title'],
         start = request.POST['inicio'],
         end = request.POST['fin'],
-        dispositivo_id = 1
+        dispositivo_id = request.POST['dispositivo']
 
     )
     tarea.save()
