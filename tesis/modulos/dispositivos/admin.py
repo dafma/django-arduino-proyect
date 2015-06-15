@@ -1,6 +1,7 @@
 from django.contrib import admin
 from modulos.dispositivos.models import Dispositivos
 from modulos.dispositivos.models import Tareas
+from modulos.dispositivos.models import UsosDisp 
 
 # Register your models here.
 class DispositivoAdmin(admin.ModelAdmin):
@@ -94,3 +95,12 @@ class TareasAdmin(admin.ModelAdmin):
           return ("%s" % (obj.dispositivo)).upper()
     Dispositivo.short_description = 'Dispositivo'
 admin.site.register(Tareas, TareasAdmin)
+
+
+class usosAdmin(admin.ModelAdmin):
+    list_per_page=10
+    select_related=False 
+    #search_fields=['usuario', 'dispositivo']
+    #list_display=('DispositivoA','Usuario')
+    #list_filter=['tiempo_encendido', 'tiempo_apagado']
+admin.site.register(UsosDisp, usosAdmin)

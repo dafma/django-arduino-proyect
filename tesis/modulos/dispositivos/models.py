@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 class Dispositivos(models.Model):
     nombre = models.CharField(max_length=100)
@@ -22,3 +23,18 @@ class Tareas(models.Model):
 
     def __unicode__(self):
         return self.title
+
+
+
+class UsosDisp(models.Model):
+    tiempo_encendido = models.DateTimeField(verbose_name="tiempo de encendido", null=True, blank=True)
+    tiempo_apagado = models.DateTimeField(verbose_name="tiempo de apagado", null=True, blank=True)
+    Usuario = models.ForeignKey(User)
+    dispositivo = models.ForeignKey(Dispositivos)
+
+    class Meta:
+        verbose_name_plural = 'Usos de dispositivos'
+        verbose_name = 'Usos de dispositivo'
+
+    def __unicode__(self):
+        return u'%s - %s' %(self.dispositivo, self.Usuario)
