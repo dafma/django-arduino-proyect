@@ -38,7 +38,7 @@ def dispositivos(request):
         dispositivo = Dispositivos.objects.get(id=request.POST['id'])
         # ultimo_uso = UsosDisp.objects.filter(dispositivo=dispositivo).order_by('-id')[0]
         usuario = request.user
-        import pdb; pdb.set_trace() 
+        #import pdb; pdb.set_trace() 
         if is_on == True:
             UsosDisp.objects.create(Usuario=usuario, dispositivo=dispositivo, tiempo_encendido=datetime.datetime.now(),tiempo_apagado=datetime.datetime.now())
         else:
