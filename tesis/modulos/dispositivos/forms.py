@@ -14,7 +14,6 @@ TipoReporte = (('0','Seleccione...'),('1','dispositivos disponibles'),('2','usua
 disp = (('0','Seleccione...'),)
 
 class TipoReporteForm(forms.Form):
-    #dispositivo = forms.ChoiceField(Dispositivos.objects.as_choices(), label='Seleccione Dispositivo')
     tipo = forms.ChoiceField(choices=TipoReporte, required=True, help_text='<i>Por favor, seleccione el tipo que desea descargar.</i>', label='Tipo de reporte') 
     fecha_ini = forms.CharField()
     fecha_fin = forms.CharField()

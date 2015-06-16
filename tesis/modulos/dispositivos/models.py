@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-
+from import_export import resources
 
 class DispositivosManager(models.Manager):
     def as_choices(self):
@@ -16,6 +16,10 @@ class Dispositivos(models.Model):
     is_on = models.BooleanField(default=False) # para almacenar el estado en que se encuentra el dispositivo, encendido o apagado
     status = models.BooleanField(default=True) # para deshabilitar un dispositivo
 
+    class Meta:
+        verbose_name_plural = 'Dispositivos'
+        verbose_name = 'Dispositivo'
+
     def __unicode__(self):
         return self.nombre
 
@@ -27,6 +31,10 @@ class Tareas(models.Model):
     allDay = models.BooleanField(default=False,verbose_name="todo el dia?")  
     status = models.CharField(max_length=100)
     dispositivo = models.ForeignKey(Dispositivos)
+
+    class Meta:
+        verbose_name_plural = 'Tareas'
+        verbose_name = 'Tarea'
 
     def __unicode__(self):
         return self.title

@@ -2,15 +2,27 @@ from django.contrib import admin
 from modulos.dispositivos.models import Dispositivos
 from modulos.dispositivos.models import Tareas
 from modulos.dispositivos.models import UsosDisp 
+from import_export import resources
+from import_export.admin import ImportExportModelAdmin
+from import_export.admin import ImportExportActionModelAdmin
 
 # Register your models here.
-class DispositivoAdmin(admin.ModelAdmin):
+from import_export import resources
+
+
+class DispResource(resources.ModelResource):
+    class Meta:
+        model = Dispositivos
+
+
+
+class DispositivoAdmin(ImportExportActionModelAdmin):
     list_per_page=10
     select_related=False 
-    search_fields=['nombre, tipo',]
+    search_fields=['nombre', 'tipo',]
     list_display=('nombre','tipo','puerto', 'watts', 'is_on')
     list_filter=['is_on', 'status']
-
+    resource_class = DispResource
 
     def history_view(self,request,object_id,extra_context=None):
         from django.template.response import  TemplateResponse
@@ -49,12 +61,17 @@ class DispositivoAdmin(admin.ModelAdmin):
 admin.site.register(Dispositivos, DispositivoAdmin)
 
 
-class TareasAdmin(admin.ModelAdmin):
+class TareaResource(resources.ModelResource):
+    class Meta:
+        model = Tareas
+
+class TareasAdmin(ImportExportActionModelAdmin):
     list_per_page=10
     select_related=False 
     search_fields=['title', 'dispositivo__nombre',]
     list_display=('title', 'Dispositivo',  'start', 'end', 'allDay', 'status')
     list_filter=['allDay', 'start', 'end']
+    resource_class = TareaResource
 
 
     def history_view(self,request,object_id,extra_context=None):

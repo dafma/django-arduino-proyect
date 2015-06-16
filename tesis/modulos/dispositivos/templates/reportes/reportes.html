@@ -32,13 +32,7 @@
               <div class="panel-body">
                 
     {% block formulario %} 
-            {{ wizard.management_form }}
     <form action="." method="post" >{% csrf_token %} 
-    {{ previous_fields|safe }}
-            {{ wizard.management_form }}
-    <input type="hidden" name="{{ step_field }}" value="{{ step0 }}" />
-
-        <!--En la tabla se formatean automaticamente los campo del formulario-->
         <table>
             <tr>
                 {{form.tipo}}
@@ -59,7 +53,7 @@
         
         <div class="submit-row"> <!--Clase para los estilos de los botones-->
             <center>
-            <br><br><input  class="btn btn-sm btn-danger"  type="submit" value="{% if step < step_count %}Siguiente {% else %} Generar Reporte {% endif %}" class="boton"/>
+            <br><br><input  class="btn btn-sm btn-danger"  type="submit" value="Generar Reporte" />
             </center>
         </div>
 
