@@ -13,6 +13,8 @@ import cStringIO as StringIO
 import cgi
 from django.template.loader import render_to_string
 import datetime
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import render
 
 from Arduino import Arduino
 board = Arduino('9600') 
@@ -97,16 +99,19 @@ def ver_tareas(request):
     data = json.dumps(list(query), cls=DjangoJSONEncoder)
     return HttpResponse(data, mimetype='application/json')
 
-def generar_pdf(html):
-    # Función para generar el archivo PDF y devolverlo mediante HttpResponse
-    result = StringIO.StringIO()
-    pdf = pisa.pisaDocument(StringIO.StringIO(html.encode("UTF-8")), result)
-    if not pdf.err:
-        return HttpResponse(result.getvalue(), mimetype='application/pdf')
-    return HttpResponse('Error al generar el PDF: %s' % cgi.escape(html))
 
-def reporte_pdf(request, id):
-    # vista de ejemplo con un hipotéticosmodelo Libro
-    dispositivo=get_object_or_404(Dispositivos, id=id)
-    html = render_to_string('reportes/reportes.html', {'pagesize':'A4', 'Dispositivo':dispositivo}, context_instance=RequestContext(request))
-    return generar_pdf(html)
+def reportes_pdf(request):
+    from modulos.dispositivos.forms import TipoReporteForm
+    if request.method == 'POST':
+        import ipdb;ipdb.set_trace()
+        form = TipoReporteForm(request.POST)
+        if form.is_valid():
+            tipo = request.POST['tipo']
+
+            if tipo == '1':
+                return HttpResponseRedirect("/reporte/pensum/"+carrera)
+
+    else:
+        form = TipoReporteForm()
+    nombre_reporte = u'Reportes PDF'
+    return render(request, 'reportes/reportes.html', {'form':form, 'nombre_reporte':nombre_reporte})

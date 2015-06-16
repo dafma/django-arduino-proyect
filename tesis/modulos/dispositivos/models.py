@@ -1,7 +1,14 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+
+class DispositivosManager(models.Manager):
+    def as_choices(self):
+        for dispositivo in self.all():
+            yield (dispositivo.pk, unicode(dispositivo))
+
 class Dispositivos(models.Model):
+    objects = DispositivosManager()
     nombre = models.CharField(max_length=100)
     tipo = models.CharField(max_length=100)
     watts = models.PositiveIntegerField()
