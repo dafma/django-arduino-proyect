@@ -8,7 +8,7 @@ from modulos.dispositivos.models import UsosDisp
 import json
 from django.core.serializers.json import DjangoJSONEncoder
 from django.shortcuts import get_object_or_404
-import ho.pisa as pisa
+
 import cStringIO as StringIO
 import cgi
 from django.template.loader import render_to_string
@@ -16,8 +16,8 @@ import datetime
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 
-from Arduino import Arduino
-board = Arduino('9600') 
+#from Arduino import Arduino
+#board = Arduino('9600') 
 
 
 

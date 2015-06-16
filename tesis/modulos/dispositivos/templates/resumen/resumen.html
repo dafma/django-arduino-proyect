@@ -7,6 +7,10 @@
   <script src="{% static 'admin/js/chart-data.js' %}"></script>
   <script src="{% static 'admin/js/easypiechart.js' %}"></script>
   <script src="{% static 'admin/js/easypiechart-data.js' %}"></script>
+  <script src="{% static 'admin/js/highcharts/highcharts.js' %}"></script>
+  <script src="{% static 'admin/js/highcharts/highcharts-3d.js' %}"></script>
+  <script src="{% static 'admin/js/highcharts/modules/exporting.js' %}"></script>   
+  <script src="{% static 'admin/js/estadisticas_app.js' %}"></script>
 {% endblock %}
 
 {% block content %}
@@ -19,6 +23,12 @@
               <div class="panel-heading">Resumen</div>
               <div class="panel-body">
                 <div class="canvas-wrapper">
+                  <div class="span6">
+                    <div id="chart1" style="height: 100px"></div>
+                  </div>
+                  <div class="span6">
+                    <div id="chart2" style="height: 100px"></div>
+                  </div>
                   <canvas class="main-chart" id="line-chart" height="200" width="600"></canvas>
                 </div>
                 <p>Leyenda</p>
@@ -28,26 +38,6 @@
             </div>
           </div>
         </div>
-        <div class="list-group"; "col-sm-4">
-          <div>
-            <a href="#" class="list-group-item active">
-              <h4 class="list-group-item-heading">Lista de Sugerencias</h4>
-            </a>
-            <a href="#" class="list-group-item">
-            {% for sugerencias in sugerenciaslist %}
-              <h4 class="list-group-item-heading">Marcos</h4>
-              <p class="list-group-item-text">Buena presentacion, excelente herramienta</p>
-              <a href="{% url "Editar_sugerencias" sugerencias.id %}">Editar</a>
-            {% endfor %}
-            </a>
-            <a href="#" class="list-group-item">
-              <h4 class="list-group-item-heading">Jose</h4>
-              <p class="list-group-item-text">Verificar Uso, lenta la respuesta de la herramienta</p>
-            </a>
-          </div>
-          
-          
-          
         </div>
       </div>
     </div>

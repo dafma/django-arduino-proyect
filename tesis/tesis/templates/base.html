@@ -67,7 +67,7 @@
                   <li {% if "reportes" in request.path %} class="active" {% endif %}><a href="{% url "reportes" %}">Reportes</a></li>
                 </ul>
                 <ul class="nav nav-tabs">
-                  <li {% if "configuraciones" in request.path %} class="active" {% endif %}><a href="{% url "configuraciones" %}">Configuraciones</a></li>
+                  <li><a href="{% static 'admin/manual2.pdf' %}" target="new">Manual de Usuarios</a></li>
                   <li><a href="http://www.arduino.cc" target="new">Pagina Oficial Arduino</a></li>
                 </ul>
               </div>
