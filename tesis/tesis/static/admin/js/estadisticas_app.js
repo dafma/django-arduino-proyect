@@ -1,7 +1,7 @@
 $(document).ready(function(){
 
 
-    $.getJSON("/resumen/", function(data){
+    $.getJSON("/estadisticas/", function(data){
 
         $('#chart1').highcharts({
             chart: {
@@ -16,7 +16,7 @@ $(document).ready(function(){
                 text: 'Dispositivo cantidad usado'
             },
             tooltip: {
-                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+                pointFormat: '{.name}: <b>{point.percentage:.1f}%</b>'
             },
             plotOptions: {
                 pie: {

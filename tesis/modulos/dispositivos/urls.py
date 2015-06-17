@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+from __future__ import unicode_literals
 from django.conf.urls import patterns, url
 
 urlpatterns = patterns(
@@ -5,6 +7,9 @@ urlpatterns = patterns(
     url(r'^$', 'modulos.dispositivos.views.resumen', name='resumen'),
     url(r'^estadisticas/$', 'modulos.dispositivos.views.estadisticas', name='estadisticas'),
     url(r'^reportes/$', 'modulos.dispositivos.views.reportes_pdf', name='reportes'),
+    url(r'^disponibles/$', 'modulos.dispositivos.views.disponibles'),
+    url(r'^usuarios/$', 'modulos.dispositivos.views.usuarios'),
+    url(r'^usos/$', 'modulos.dispositivos.views.ListadoUsos'),
     #url(r'^reportepdf/(\d+)/', 'modulos.dispositivos.views.reportes_pdf'),
     url(r'^configuraciones/$', 'modulos.dispositivos.views.configuraciones', name='configuraciones'),
     url(r'^dispositivos/$', 'modulos.dispositivos.views.dispositivos', name='dispositivos'),
