@@ -22,7 +22,7 @@ board = Arduino('9600')
 
 
 def estadisticasDisp(request):
-    query = UsosDisp.objects.all().values_list('dispositivo__nombre').annotate(total=Count('id')).order_by('-id')
+    query = UsosDisp.objects.all().values_list('dispositivo__nombre').annotate(dcount=Count('dispositivo'))
     data = json.dumps(list(query), cls=DjangoJSONEncoder)
     return HttpResponse(data, mimetype='application/json')
 

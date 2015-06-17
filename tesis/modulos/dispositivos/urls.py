@@ -2,7 +2,9 @@ from django.conf.urls import patterns, url
 
 urlpatterns = patterns(
     '',
-    url(r'^$', 'modulos.dispositivos.views.resumen', name='resumen'),
+    #url(r'^$', 'modulos.dispositivos.views.resumen', name='resumen'),
+    url(r'^$', 'modulos.dispositivos.views.estadisticas', name='estadisticas'),
+    url(r'^estadisticas/dispositivos$', 'modulos.dispositivos.views.estadisticasDisp'),
     url(r'^reportes/$', 'modulos.dispositivos.views.reportes_pdf', name='reportes'),
     #url(r'^reportepdf/(\d+)/', 'modulos.dispositivos.views.reportes_pdf'),
     url(r'^configuraciones/$', 'modulos.dispositivos.views.configuraciones', name='configuraciones'),
@@ -13,6 +15,4 @@ urlpatterns = patterns(
     url(r'^tareas/create/$', 'modulos.dispositivos.views.guardar_tarea'),
     url(r'^tareas/update/$', 'modulos.dispositivos.views.actualizar_tarea'),
     url(r'^tareas/delete/$', 'modulos.dispositivos.views.eliminar_tarea'),
-    url(r'^estadisticas/$', 'modulos.dispositivos.views.estadisticas'),
-    url(r'^estadisticas/dispositivos$', 'modulos.dispositivos.views.estadisticasDisp'),
     )

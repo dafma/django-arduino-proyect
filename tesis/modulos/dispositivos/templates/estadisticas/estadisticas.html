@@ -1,34 +1,20 @@
-{% extends "admin/base_site.html" %}
+{% extends 'base.html' %}
 {% load staticfiles %}
 
-{% block extrastyle %}
-  
+{% block css %}
+  <link rel="stylesheet" type="text/css" href="{% static "lib/bootstrap-switch/css/bootstrap3/bootstrap-switch.min.css" %}">
 {% endblock %}
 
-{% block extrahead %}
+{% block js %}
 <script src="{% static 'fullcalendar-2.3.1/lib/jquery.min.js' %}"></script> 
 <script src="{% static 'js/highcharts/highcharts.js' %}"></script>
 <script src="{% static 'js/highcharts/highcharts-3d.js' %}"></script>
 <script src="{% static 'js/highcharts/modules/exporting.js' %}"></script>   
 <script src="{% static 'js/estadisticas_app.js' %}"></script>
 {% endblock %}
-
-
-{% block breadcrumbs %}
-            <ul class="breadcrumb">
-                <li><a href="/admin/"><i class="icon-home"></i></a> <span class="divider">/</span></li>
-                <li class="active">Estadisticas</li>
-            </ul><br>{% endblock %}
-
-{% block main-struct %}
-
-
-      <header class="page-header">
-        <h1>Estadisticas</h1>
-      </header>
-
       
         
+{% block content %}
 
   <div class="container-fluid">          
       <div class="row-fluid show-grid">
@@ -47,23 +33,4 @@
       </div>
   </div>
 
-          
-      
-                
-             
-  
-
-
-
-
-
-
-
-
-
-
-
-
 {% endblock %}
-
-
