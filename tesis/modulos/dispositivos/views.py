@@ -72,6 +72,13 @@ def estadisticasDisp(request):
     data = json.dumps(list(query), cls=DjangoJSONEncoder)
     return HttpResponse(data, mimetype='application/json')
 
+
+def estadisticasUsu(request):
+    query = UsosDisp.objects.all().values_list('Usuario__username').annotate(dcount=Count('dispositivo'))
+    data = json.dumps(list(query), cls=DjangoJSONEncoder)
+    return HttpResponse(data, mimetype='application/json')
+
+
 def resumen(request):
     return render_to_response('resumen/resumen.html', context_instance=RequestContext(request))
 

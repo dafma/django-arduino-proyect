@@ -7,6 +7,7 @@ urlpatterns = patterns(
     #url(r'^$', 'modulos.dispositivos.views.resumen', name='resumen'),
     url(r'^$', 'modulos.dispositivos.views.estadisticas', name='estadisticas'),
     url(r'^estadisticas/dispositivos$', 'modulos.dispositivos.views.estadisticasDisp'),
+    url(r'^estadisticas/usuarios$', 'modulos.dispositivos.views.estadisticasUsu'),
     url(r'^reportes/$', 'modulos.dispositivos.views.reportes_pdf', name='reportes'),
     url(r'^disponibles/$', 'modulos.dispositivos.views.disponibles'),
     url(r'^usuarios/$', 'modulos.dispositivos.views.usuarios'),
