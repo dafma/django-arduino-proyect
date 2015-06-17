@@ -1,7 +1,7 @@
 $(document).ready(function(){
 
 
-    $.getJSON("dispositivos/update/", function(data){
+    $.getJSON("/estadisticas/", function(data){
 
         $('#chart1').highcharts({
             chart: {
@@ -13,10 +13,10 @@ $(document).ready(function(){
                 }
             },
             title: {
-                text: 'Dispositivo cantidad usado'
+                text: 'Usos de Dispositivos'
             },
             tooltip: {
-                pointFormat: '{dispositivos.id}: <b>{point.percentage:.1f}%</b>'
+                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
             },
             plotOptions: {
                 pie: {
@@ -36,42 +36,3 @@ $(document).ready(function(){
         });
 
     });
-
-
-    $.getJSON("dispositivos/update/", function(data){
-
-        // Build the chart
-        $('#chart2').highcharts({
-            chart: {
-                plotBackgroundColor: null,
-                plotBorderWidth: null,
-                plotShadow: false
-            },
-            title: {
-                text: 'Dispositivo mas Demandado'
-            },
-            tooltip: {
-                pointFormat: '{dispositivos.nombre}: <b>{point.percentage:.1f}%</b>'
-            },
-            plotOptions: {
-                pie: {
-                    allowPointSelect: true,
-                    cursor: 'pointer',
-                    dataLabels: {
-                        enabled: true,
-                        format: '<b>{point.name}</b>: {point.percentage:.1f} %',
-                        style: {
-                            color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
-                        }
-                    }
-                }
-            },
-            series: [{
-                type: 'pie',
-                name: 'Browser share',
-                data: data
-            }]
-        });
-
-    });
-});
