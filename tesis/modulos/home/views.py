@@ -16,8 +16,3 @@ def usos_est(request):
     query = UsosDisp.objects.all().values_list('Usuario__dispositivo_id').annotate(total=Count('dispositivo.id')).order_by('total')
     data = json.dumps(list(query), cls=DjangoJSONEncoder)
     return HttpResponse(data, mimetype='application/json')
-
-def dispositivos_est(request):
-    query = Dispositivos.objects.all().values_list('dispositivo__dispositivo_nombre').annotate(total=Count('dispositivo.nombre')).order_by('total')
-    data = json.dumps(list(query), cls=DjangoJSONEncoder)
-    return HttpResponse(data, mimetype='application/json')

@@ -15,11 +15,16 @@ from django.template.loader import render_to_string
 import datetime
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
+from django.db.models import Count
 
-#from Arduino import Arduino
-#board = Arduino('9600') 
+from Arduino import Arduino
+board = Arduino('9600') 
 
 
+def estadisticasDisp(request):
+    query = UsosDisp.objects.all().values_list('dispositivo__nombre').annotate(total=Count('id')).order_by('-id')
+    data = json.dumps(list(query), cls=DjangoJSONEncoder)
+    return HttpResponse(data, mimetype='application/json')
 
 def resumen(request):
     return render_to_response('resumen/resumen.html', context_instance=RequestContext(request))

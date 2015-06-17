@@ -25,7 +25,7 @@ $(document).ready(function(){
                     depth: 35,
                     dataLabels: {
                         enabled: true,
-                        for                    }
+                                           }
                 }
             },
             series: [{
