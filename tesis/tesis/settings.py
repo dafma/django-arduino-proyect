@@ -115,3 +115,6 @@ STATIC_ROOT = os.path.join(BASE_DIR,'static')
 
 MEDIA_ROOT = '%s/media/' % os.getcwd()
 MEDIA_URL = '/media/'
+
+ADMIN_SITE_NAME = 'Bienvenidos a A.C.C.E.M.A'
+ADMIN_SITE_DESCRIPTION = 'Aplicación Para el Control de Circuitos Electricos Mediante Arduino'

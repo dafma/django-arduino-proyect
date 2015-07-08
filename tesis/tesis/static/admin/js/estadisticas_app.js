@@ -1,7 +1,7 @@
 $(document).ready(function(){
 
 
-    $.getJSON("/resumen/", function(data){
+    $.getJSON("/la_vista_principal/", function(data){
 
         $('#chart1').highcharts({
             chart: {
@@ -39,7 +39,7 @@ $(document).ready(function(){
     });
 
 
-    $.getJSON("resumen", function(data){
+    $.getJSON("/la_vista_principal/", function(data){
 
         // Build the chart
         $('#chart2').highcharts({
