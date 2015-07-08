@@ -1,7 +1,7 @@
 $(document).ready(function(){
 
 
-    $.getJSON("/la_vista_principal/", function(data){
+    $.getJSON("dispositivos/update/", function(data){
 
         $('#chart1').highcharts({
             chart: {
@@ -16,7 +16,7 @@ $(document).ready(function(){
                 text: 'Dispositivo cantidad usado'
             },
             tooltip: {
-                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+                pointFormat: '{dispositivos.id}: <b>{point.percentage:.1f}%</b>'
             },
             plotOptions: {
                 pie: {
@@ -25,8 +25,7 @@ $(document).ready(function(){
                     depth: 35,
                     dataLabels: {
                         enabled: true,
-                        format: '{point.name}'
-                    }
+                        for                    }
                 }
             },
             series: [{
@@ -39,7 +38,7 @@ $(document).ready(function(){
     });
 
 
-    $.getJSON("/la_vista_principal/", function(data){
+    $.getJSON("dispositivos/update/", function(data){
 
         // Build the chart
         $('#chart2').highcharts({
@@ -52,7 +51,7 @@ $(document).ready(function(){
                 text: 'Dispositivo mas Demandado'
             },
             tooltip: {
-                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+                pointFormat: '{dispositivos.nombre}: <b>{point.percentage:.1f}%</b>'
             },
             plotOptions: {
                 pie: {
