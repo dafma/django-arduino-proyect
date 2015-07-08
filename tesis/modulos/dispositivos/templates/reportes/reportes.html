@@ -30,14 +30,16 @@
             <div class="panel panel-default">
               <div class="panel-heading">Selección de Tipo de Reporte</div>
               <div class="panel-body">
-                
-                  <div id="links"><a href="/disponibles">Dispositivos Disponibles<a> </div> 
-                  <div id="links"><a href="/usuarios">Usuarios del sistema<a> </div> 
-                  <div id="links"><a href="/usos">Estadisticas de uso por usuario<a> </div> 
-
+                    <div>
+                        <a href="/disponibles"><img src="{% static 'admin/dispositivos.png' %}" width="100" align="left"></a>
+                        <a href="/usuarios"><img src="{% static 'admin/usuarios.png' %}" width="100" align="center"></a>
+                        <a href="/usos"><img src="{% static 'admin/estadisticas.png' %}" width="100" align="right"></a>
+                    </div>
+                  
+              </div> 
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
 {% endblock %}

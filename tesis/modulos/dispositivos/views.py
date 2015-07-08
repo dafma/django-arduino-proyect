@@ -18,8 +18,8 @@ from django.shortcuts import render
 from django.db.models import Count
 
 #importacion de la placa arduino
-from Arduino import Arduino
-board = Arduino('9600') 
+#from Arduino import Arduino
+#board = Arduino('9600') 
 
 #importacion de paquetes necesarios para reportes pdf
 
